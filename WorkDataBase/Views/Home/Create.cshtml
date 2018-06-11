@@ -1,0 +1,22 @@
+﻿@using WorkDataBase.Models
+@model User
+@{
+    ViewData["Title"] = "Create";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">Age</label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Car.Name" class="control-label">Name of Car</label>
+        <input type="text" asp-for="Car.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>

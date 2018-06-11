@@ -1,0 +1,31 @@
+﻿@using WorkDataBase.Models
+@{
+    ViewData["Title"] = "User Data Base";
+}
+@model IndexViewModel
+<h3>User</h3>
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Car</td>
+        <td></td>
+    </tr>
+    @foreach (var users in Model.Users)
+    {
+        <tr>
+            <td>@users.Name</td>
+            <td>@users.Age</td>
+            <td>@users.Car.Name</td>
+            <td>
+                <a href="/Home/GetCar/@users.Car.Id">Get car name</a>|
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@users.Id">More info</a>|
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@users.Id" asp-route-carId="@users.Car.Id">Edit</a>|
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@users.Id" asp-route-carId="@users.Car.Id">Delete</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a asp-action="Create" asp-controller="Home" class="btn btn-default">Create</a>
+@Html.Partial("_GetMessage")

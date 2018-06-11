@@ -1,0 +1,18 @@
+﻿@using WorkDataBase.Models
+@model User
+@{ 
+    ViewData["Title"] = "Details";
+}
+<h3>Info about @Model.Name</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Age</dt>
+        <dd>@Model.Age</dd>
+
+        <dt>Car</dt>
+        <dd>@Model.Car.Name</dd>
+    </dl>
+</div>

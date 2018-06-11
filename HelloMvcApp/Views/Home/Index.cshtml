@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HelloMvcApp.Models.Phone>
+@{
+    //ViewData["Title"] = "Список смартфонов";
+    ViewBag.Title = "Все смартфоны";
+}
+<h3>Смартфоны</h3>
+<a asp-action="Create">Добавить модель</a>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<form method="post" action="~/Home/Square">
+    <label>Высота:</label><br />
+    <input type="number" name="height" /><br />
+    <label>Основание:</label><br />
+    <input type="number" name="altitude" /><br />
+    <input type="submit" value="Отправить" />
+</form>

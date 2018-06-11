@@ -1,0 +1,17 @@
+﻿@using WorkDataBase.Models
+@{ 
+    ViewData["Title"] = "Car";
+}
+@model IndexViewModel
+
+<h3>Car</h3>
+<input type="hidden" value="@ViewBag.CarId" name="CarId"/>
+@foreach (var cars in Model.Users)
+{
+    if(cars.Car.Id == ViewBag.CarId)
+    {
+        <h2>@cars.Car.Name</h2>
+
+    }
+
+}
